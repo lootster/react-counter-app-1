@@ -27,8 +27,10 @@ class Counter extends Component {
   }
 
   render() {
+    const {counter:{name}} = this.props;
     return (
       <div className="border border-warning rounded center">
+        <span className="badge badge-info">{name}</span>
         <h1 className="big">{this.state.value}</h1>
         <button className="btn btn-primary btn-lg m-2" onClick={this.add}>
           +
