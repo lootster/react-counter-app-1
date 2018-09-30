@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Label from './Label';
-import Button from './Button';
+import Label from "./Label";
+import Button from "./Button";
 
 class Counter extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class Counter extends Component {
   }
 
   add() {
+    //this.props.counter = 0; don't change state directly
     this.setState(prevState => {
       return {
         value: prevState.value + 1
@@ -29,15 +30,25 @@ class Counter extends Component {
   }
 
   render() {
-    const {value} = this.state;
-    const {counter:{name}} = this.props;
+    const { value } = this.state;
+    const {
+      counter: { name, id },
+      onDelete
+    } = this.props;
     return (
       <div className="border border-warning rounded center">
         <span className="badge badge-info">{name}</span>
-        <Label value={value}/>
+        <Label value={value} />
         <h1 className="big">{this.state.value}</h1>
-        <Button classType="primary" clickHandler={this.add}>+</Button>
-        <Button classType="danger" clickHandler={this.minus}>-</Button>
+        <Button classType="primary" clickHandler={this.add}>
+          +
+        </Button>
+        <Button classType="danger" clickHandler={this.minus}>
+          -
+        </Button>
+        <Button classType="danger" onDelete={onDelete} id={id}>
+          Delete
+        </Button>
       </div>
     );
   }

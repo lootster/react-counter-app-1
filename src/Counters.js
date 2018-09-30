@@ -20,12 +20,20 @@ class Counters extends Component {
     };
   }
 
+  delete(id){
+    console.log('Event handler called')
+    const filteredCounters = this.state.counters.filter(counter => counter.id !== id)
+    this.setState({
+      counters: filteredCounters
+    });
+  }
+
   render() {
     const { counters } = this.state;
     return (
       <div className="App">
         {counters.map(counter => (
-          <Counter key={counter.id} counter={counter} />
+          <Counter key={counter.id} counter={counter} onDelete={this.delete.bind(this)}/>
         ))}
       </div>
     );
