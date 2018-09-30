@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import Counter from "./Counter";
+import Counters from './Counters';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Counter />
+      <div>
+        <Counters />
       </div>
     );
   }
