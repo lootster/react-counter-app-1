@@ -7,7 +7,7 @@
 # Part 2
 * Display a list of `Counter` all maintaing their individual state
 
-#Part 3
+# Part 3
 * Display `Jumpstarters` name to each counter
 
 # Part 4
