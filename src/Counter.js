@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Label from './Label';
+import Button from './Button';
 
 class Counter extends Component {
   constructor(props) {
@@ -35,12 +36,8 @@ class Counter extends Component {
         <span className="badge badge-info">{name}</span>
         <Label value={value}/>
         <h1 className="big">{this.state.value}</h1>
-        <button className="btn btn-primary btn-lg m-2" onClick={this.add}>
-          +
-        </button>
-        <button className="btn btn-danger btn-lg m-2" onClick={this.minus}>
-          -
-        </button>
+        <Button classType="primary" clickHandler={this.add}>+</Button>
+        <Button classType="danger" clickHandler={this.minus}>-</Button>
       </div>
     );
   }
