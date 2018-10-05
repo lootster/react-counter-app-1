@@ -11,8 +11,14 @@ const applyFormat = value => {
   );
 };
 
-const Label = ({ value }) => {
-  return <div>{applyFormat(value)}</div>;
+const Label = ({ value, name }) => {
+  return (
+    <div className="center">
+      <span class="badge badge-pill badge-info">{name}</span>
+      <br/>
+      <span>{formatCount(value)}</span>
+    </div>
+  );
 };
 
 export default Label;

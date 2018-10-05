@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Label from './Label';
-import Button from './Button';
+import Button from "./Button";
+import Label from "./Label";
 
 class Counter extends Component {
   constructor(props) {
@@ -8,36 +8,37 @@ class Counter extends Component {
     this.state = {
       value: props.counter.value
     };
-    this.add = this.add.bind(this);
-    this.minus = this.minus.bind(this);
   }
 
-  add() {
-    this.setState(prevState => {
-      return {
-        value: prevState.value + 1
-      };
+  add = () => {
+    let newValue = this.state.value;
+    newValue++;
+    this.setState({
+      value: newValue
     });
-  }
+  };
 
-  minus() {
-    this.setState(prevState => {
-      return {
-        value: prevState.value - 1
-      };
+  minus = () => {
+    let newValue = this.state.value;
+    newValue--;
+    this.setState({
+      value: newValue
     });
-  }
+  };
 
   render() {
-    const {value} = this.state;
-    const {counter:{name}} = this.props;
+    const { value } = this.state;
+    const {counter:{name}} = this.props
     return (
-      <div className="border border-warning rounded center">
-        <span className="badge badge-info">{name}</span>
-        <Label value={value}/>
-        <h1 className="big">{this.state.value}</h1>
-        <Button classType="primary" clickHandler={this.add}>+</Button>
-        <Button classType="danger" clickHandler={this.minus}>-</Button>
+      <div className="border border-warning rounded mb-3">
+        <Label value={value} name={name} />
+        <h1 className="big">{value}</h1>
+        <Button classType="primary" handleClick={this.add}>
+          +
+        </Button>
+        <Button classType="danger" handleClick={this.minus}>
+          -
+        </Button>
       </div>
     );
   }
