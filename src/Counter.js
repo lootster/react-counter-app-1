@@ -1,47 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import Button from "./Button";
 import Label from "./Label";
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: props.counter.value
-    };
-  }
-
-  add = () => {
-    let newValue = this.state.value;
-    newValue++;
-    this.setState({
-      value: newValue
-    });
-  };
-
-  minus = () => {
-    let newValue = this.state.value;
-    newValue--;
-    this.setState({
-      value: newValue
-    });
-  };
-
-  render() {
-    const { value } = this.state;
-    const {counter:{name}} = this.props
-    return (
-      <div className="border border-warning rounded mb-3">
-        <Label value={value} name={name} />
-        <h1 className="big">{value}</h1>
-        <Button classType="primary" handleClick={this.add}>
-          +
-        </Button>
-        <Button classType="danger" handleClick={this.minus}>
-          -
-        </Button>
-      </div>
-    );
-  }
-}
+const Counter = ({
+  counter,
+  counter: { name, value },
+  deleteHandler,
+  addHandler,
+  minusHandler
+}) => {
+  console.log('Individual counter rendered')
+  return (
+    <div className="border border-warning rounded mb-3">
+      <Label value={value} name={name} />
+      <h1 className="big">{value}</h1>
+      <Button classType="primary" handleClick={addHandler} counter={counter}>
+        +
+      </Button>
+      <Button classType="danger" handleClick={minusHandler} counter={counter}>
+        -
+      </Button>
+      <Button classType="danger" handleClick={deleteHandler} counter={counter}>
+        Delete
+      </Button>
+    </div>
+  );
+};
 
 export default Counter;
