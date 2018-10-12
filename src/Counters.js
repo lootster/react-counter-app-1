@@ -1,5 +1,6 @@
 import React from "react";
 import Counter from "./Counter";
+
 const Counters = ({ counters, deleteHandler, addHandler, minusHandler }) => {
   console.log('Counter list rendered');
   return (
@@ -16,4 +17,5 @@ const Counters = ({ counters, deleteHandler, addHandler, minusHandler }) => {
     </div>
   );
 };
+
 export default Counters;
