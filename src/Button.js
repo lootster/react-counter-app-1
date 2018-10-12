@@ -3,28 +3,14 @@ import React from "react";
 const Button = ({
   children,
   classType,
-  onAdd,
-  onMinus,
+  handleClick,
   counter,
-  onDelete
+  counter:{id}
 }) => {
-  return onDelete ? (
+  const argumentToCall = children === "Delete" ? id : counter;
+  return (
     <button
-      onClick={() => onDelete(counter.id)}
-      className={`btn btn-${classType} btn-lg m-2`}
-    >
-      {children}
-    </button>
-  ) : onAdd ? (
-    <button
-      onClick={() => onAdd(counter)}
-      className={`btn btn-${classType} btn-lg m-2`}
-    >
-      {children}
-    </button>
-  ) : (
-    <button
-      onClick={() => onMinus(counter)}
+      onClick={() => handleClick(argumentToCall)}
       className={`btn btn-${classType} btn-lg m-2`}
     >
       {children}
